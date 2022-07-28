@@ -20,13 +20,17 @@ class Solution:
         li = []
         for i in digits:
             li.append(dic[i])
-            
-        # 只输入一个数字时，直接返回对应字母
+        
+        # 只输入一位数字时，数字为0/1时直接返回0/1，否则返回对应字母
         n = len(li)
         if n == 1:
+            if digits[0] == "0":
+                return "0"
+            elif digits[0] == "1":
+                return "1"
             return li[0]
         
-        # 输入多个数字时，组合字母
+        # 输入多位数字时，组合字母
         li_grow = [""]
         for i in range(n):
             li_now = []
