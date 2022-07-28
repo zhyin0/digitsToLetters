@@ -16,14 +16,17 @@ class Solution:
             "9": ["w", "x", "y", "z"]
         }
 
+        # 获取每个数字对应的字母
         li = []
         for i in digits:
             li.append(dic[i])
+            
+        # 只输入一个数字时，直接返回对应字母
         n = len(li)
         if n == 1:
             return li[0]
-        elif n == 0:
-            return li
+        
+        # 输入多个数字时，组合字母
         li_grow = [""]
         for i in range(n):
             li_now = []
@@ -36,6 +39,7 @@ class Solution:
 
 if __name__ == '__main__':
     n = input("Please enter an integer from 0 to 99:")
+    # 限制只能输入两位数字
     while (re.match("[0-9]{1,2}$", n) == None):
         n = input("Illegal input! Only integers from 0 to 99 are supported. Please re-enter：")
     print(Solution.letterCombinations(Solution, n))
